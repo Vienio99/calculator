@@ -21,3 +21,23 @@ function divide(a, b) {
 function operator(operator, a, b) {
     return operator(a, b);
 }
+
+const numbers = document.querySelectorAll('.number');
+const display = document.querySelector('.display > p')
+const clear = document.querySelector('#clear')
+let currentNumber = '';
+
+
+numbers.forEach((number) => {
+	number.addEventListener('click', () => {
+		currentNumber += number.textContent;
+		display.textContent = currentNumber;
+	})
+})
+
+clear.addEventListener('click', () => {
+	currentNumber = '';
+})
+
+
+
