@@ -39,6 +39,17 @@ clear.addEventListener('click', () => {
 	clearDisplay();
 })
 
+const del = document.querySelector('#delete')
+
+del.addEventListener('click', () => {
+	if (currentNumber.length > 1) {
+	currentNumber = currentNumber.slice(0, -1);
+	populateDisplay(currentNumber);
+	console.log(currentNumber)
+	} else {
+		populateDisplay(0);
+	}
+})
 
 const display = document.querySelector('.display > p');
 
