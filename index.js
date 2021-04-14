@@ -127,7 +127,7 @@ operators.forEach((operator) => {
 
 const equalSign = document.querySelector('#equal');
 
-equalSign.addEventListener('click', () => {
+function displayEquation() {
 	if (currentNumber === '0') {
 		alert("You can't divide by 0!");
 		clearAll();
@@ -139,7 +139,11 @@ equalSign.addEventListener('click', () => {
 		clearCurrent();
 	} else {
 		currentOperator = '';
-}})
+}}
+
+equalSign.addEventListener('click', () => {
+	displayEquation();
+})
 
 // Operator of the whole equation
 
@@ -157,3 +161,12 @@ function returnResult(mathFunc, a, b) {
 			return add(a, b);
 	}
 }
+
+// Keyboard support
+
+document.addEventListener('keydown', function(event) {
+	if (event.key && event.key != 'Shift') {
+		btn = document.querySelector(`[data-key="${event.key}"]`)
+		btn.click();
+	}
+})
