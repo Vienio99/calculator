@@ -59,6 +59,16 @@ del.addEventListener('click', () => {
 	}
 })
 
+// Decimal button
+
+const decimal = document.querySelector('#decimal');
+
+decimal.addEventListener('click', () => {
+	if (!currentNumber.includes('.')) {
+		currentNumber += '.';
+}})
+
+
 const display = document.querySelector('.display > p');
 
 // Main variables
@@ -118,7 +128,11 @@ operators.forEach((operator) => {
 const equalSign = document.querySelector('#equal');
 
 equalSign.addEventListener('click', () => {
-	if (total && currentNumber && currentOperator) {
+	if (currentNumber === '0') {
+		alert("You can't divide by 0!");
+		clearAll();
+	}
+	else if (total && currentNumber && currentOperator) {
 		total = returnResult(currentOperator, total, currentNumber);
 		total = roundNumber(total);
 		populateDisplay(total);

@@ -3,10 +3,6 @@ html {
     background-color:azure;
 }
 
-h1 {
-    text-align: center;
-}
-
 #calculator {
     width: 400px;
     margin: 0 auto;
@@ -48,6 +44,7 @@ h1 {
     border-radius: 5px;
     font-family: 'Bungee', cursive;
     background-color: white;
+    cursor: pointer;
 }
 
 .buttons button:hover {
