@@ -24,10 +24,10 @@ html {
 }
 
 .display p {
-    padding-right: 10px;
+    padding-right: 2.5%;
     height: 28px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 5%;
+    margin-bottom: 5%;
     overflow: hidden;
 }
 
@@ -43,8 +43,13 @@ html {
     border: 2px solid black;
     border-radius: 5px;
     font-family: 'Bungee', cursive;
+    font-size: 17px;
     background-color: white;
     cursor: pointer;
+}
+
+#multiple {
+    font-size: 15px;
 }
 
 .buttons button:hover {

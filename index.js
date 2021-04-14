@@ -165,8 +165,8 @@ function returnResult(mathFunc, a, b) {
 // Keyboard support
 
 document.addEventListener('keydown', function(event) {
-	if (event.key && event.key != 'Shift') {
-		btn = document.querySelector(`[data-key="${event.key}"]`)
+	btn = document.querySelector(`[data-key="${event.key}"]`)
+	if (event.key && event.key != 'Shift' && btn) {
 		btn.click();
 	}
 })
