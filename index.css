@@ -1,5 +1,6 @@
 html {
     font-family: 'Bungee', cursive;
+    background-color:azure;
 }
 
 h1 {
@@ -31,6 +32,7 @@ h1 {
     height: 28px;
     margin-top: 20px;
     margin-bottom: 20px;
+    overflow: hidden;
 }
 
 .buttons {
@@ -45,8 +47,37 @@ h1 {
     border: 2px solid black;
     border-radius: 5px;
     font-family: 'Bungee', cursive;
-
+    background-color: white;
 }
+
+.buttons button:hover {
+    background-color: rgb(221, 221, 221);
+}
+
+.buttons button:active {
+    background-color: rgb(189, 189, 189);
+}
+
 .top-button {
     grid-column: span 2;
+}
+
+
+/* Operator */
+.buttons .operator {
+    background-color: orange;
+}
+
+.buttons .operator:hover {
+    background-color: rgb(219, 143, 0);
+}
+
+.buttons .operator:active {
+    background-color: rgb(197, 129, 3);
+}
+
+/* Top buttons */
+
+.top-button {
+    background-color: rgb(159, 130, 179)
 }

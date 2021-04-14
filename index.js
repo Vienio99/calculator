@@ -22,40 +22,52 @@ function populateDisplay(content) {
 	display.textContent = content;
 }
 
-function clearAll() {
+function clearCurrent() {
 	currentNumber = '';
 	currentOperator = '';
 }
 
-function clearDisplay() {
-	clearAll();
+function clearAll() {
+	clearCurrent();
 	populateDisplay(0);
 	total = 0;
 }
 
+function roundNumber(number) {
+	return Math.round((number + Number.EPSILON) * 100) / 100;
+}
+
+// Clear button
+
 const clear = document.querySelector('#clear');
 
 clear.addEventListener('click', () => {
-	clearDisplay();
+	clearAll();
 })
+
+// Delete button
 
 const del = document.querySelector('#delete')
 
 del.addEventListener('click', () => {
 	if (currentNumber.length > 1) {
-	currentNumber = currentNumber.slice(0, -1);
-	populateDisplay(currentNumber);
-	console.log(currentNumber)
+		currentNumber = currentNumber.slice(0, -1);
+		populateDisplay(currentNumber);
 	} else {
+		currentNumber = '';
 		populateDisplay(0);
 	}
 })
 
 const display = document.querySelector('.display > p');
 
+// Main variables
+
 let currentNumber = '';
 let currentOperator = '';
 let total = '';
+
+// Numbers listener
 
 const numbers = document.querySelectorAll('.number');
 
@@ -78,6 +90,8 @@ numbers.forEach((number) => {
 })
 
 
+// Operator listener and evaluation of the equation
+
 const operators = document.querySelectorAll('.operator');
 
 operators.forEach((operator) => {
@@ -95,19 +109,27 @@ operators.forEach((operator) => {
 			case '+':
 				currentOperator = 'add';
 				break;
-			case '=':
-				total = result(currentOperator, total, currentNumber);
-				populateDisplay(total);
-				clearAll();
-				break;
 		}
 	})
 })
 
+// Display equation
 
-// Operator
+const equalSign = document.querySelector('#equal');
 
-function result(mathFunc, a, b) {
+equalSign.addEventListener('click', () => {
+	if (total && currentNumber && currentOperator) {
+		total = returnResult(currentOperator, total, currentNumber);
+		total = roundNumber(total);
+		populateDisplay(total);
+		clearCurrent();
+	} else {
+		currentOperator = '';
+}})
+
+// Operator of the whole equation
+
+function returnResult(mathFunc, a, b) {
 	a = Number(a);
 	b = Number(b);
 	switch (mathFunc) {
