@@ -1,5 +1,5 @@
 <h1>Calculator</h1>
-<p>Project to calculator.</p>
+<p>Project to make a calculator.</p>
 <p>From The Odin Project's <a href="https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/calculator">curriculum.</a></p>
 
 <h2>Built with</h2>
